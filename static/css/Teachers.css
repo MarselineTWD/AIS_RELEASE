@@ -1,0 +1,136 @@
+.body{
+    
+}
+/* Our Teachers Section */
+.teachers-section {
+    background: linear-gradient(135deg, #ffeeee, #f2f9ff); /* Градиентный фон */
+    border-radius: 1rem;
+    box-shadow: 0px 3px 3px 4px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.teachers-section h2 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #1D3D66;
+    font-family: 'Abril Fatface', cursive;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #1D3D66;
+    padding-bottom: 0.75rem;
+    display: inline-block;
+    position: relative;
+    font-size: 40px;
+
+}
+
+
+
+.teachers-section #teachersList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.teacherlist-text {
+    color: #1D3D66;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(29, 61, 102, 0.05);
+    border-radius: 0.5rem;
+}
+
+.empty-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.teacherlist-show {
+    border: 2px solid #1D3D66;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.teacherlist-show:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.teacherlist-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.teacher-icon {
+    font-size: 2rem;
+    margin-right: 0.75rem;
+    color: #1D3D66;
+}
+
+.teacher-name {
+    font-size:45px !important;
+    font-weight: 600;
+    color: #1D3D66;
+    font-family: 'Arial', sans-serif;
+}
+
+.teacherlist-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.teacherlist-show-p {
+    display: flex;
+    align-items: center;
+    color: #374151; /* Более мягкий черный */
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+
+.detail-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: #1D3D66;
+}
+
+/* Анимация */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .teachers-section {
+        padding: 1.5rem;
+    }
+
+    .teachers-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .teacherlist-show {
+        padding: 1rem;
+    }
+
+    .teacher-name {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,105 @@
+{
+    "level": "A2 (Elementary)",
+    "questions": [
+        {
+            "question": "I ____ to the cinema last night.",
+            "options": [
+                "went",
+                "go",
+                "goes",
+                "going"
+            ],
+            "correct_answer": "went"
+        },
+        {
+            "question": "If it ____ tomorrow, I will stay at home.",
+            "options": [
+                "rains",
+                "rain",
+                "rained",
+                "raining"
+            ],
+            "correct_answer": "rains"
+        },
+        {
+            "question": "She ____ English for two years.",
+            "options": [
+                "has been learning",
+                "learn",
+                "learns",
+                "learned"
+            ],
+            "correct_answer": "has been learning"
+        },
+        {
+            "question": "I would ____ to travel around the world.",
+            "options": [
+                "like",
+                "likes",
+                "liked",
+                "liking"
+            ],
+            "correct_answer": "like"
+        },
+        {
+            "question": "We ____ dinner when the phone rang.",
+            "options": [
+                "were having",
+                "have",
+                "has",
+                "had"
+            ],
+            "correct_answer": "were having"
+        },
+        {
+            "question": "Can you tell me where ____ from?",
+            "options": [
+                "you are",
+                "are you",
+                "do you",
+                "is you"
+            ],
+            "correct_answer": "you are"
+        },
+        {
+            "question": "I ____ playing football since childhood.",
+            "options": [
+                "have been",
+                "am",
+                "is",
+                "were"
+            ],
+            "correct_answer": "have been"
+        },
+        {
+            "question": "He asked me ____ my weekend was.",
+            "options": [
+                "how",
+                "what",
+                "which",
+                "where"
+            ],
+            "correct_answer": "how"
+        },
+        {
+            "question": "Could you ____ me a favor?",
+            "options": [
+                "do",
+                "make",
+                "have",
+                "take"
+            ],
+            "correct_answer": "do"
+        },
+        {
+            "question": "I wish I ____ more time to study.",
+            "options": [
+                "had",
+                "have",
+                "has",
+                "having"
+            ],
+            "correct_answer": "had"
+        }
+    ]
+}

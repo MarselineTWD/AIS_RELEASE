@@ -1,0 +1,194 @@
+/* Контейнер проектов */
+.body{
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.projects-content {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Основной заголовок */
+.main-title {
+    text-align: center;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-family: 'Abril Fatface', cursive;
+}
+
+/* Карточка проекта */
+.project-card {
+    background: linear-gradient(135deg, #f2fcef 0%, #ddeafe 100%);
+    border-radius: 8px;
+    box-shadow: 1px 0px 3px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Название проекта */
+.project-title {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Статус проекта */
+.project-status {
+    display: inline-block;
+    background: #1D3D66;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Контейнер изображения */
+.preview-image {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.preview-image img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Описание проекта */
+.project-description {
+    margin: 20px auto;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Кнопка "Подробнее" */
+.expand-btn {
+    background: #1D3D66;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 150px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    border: 1px solid #1D3D66;
+}
+
+.expand-btn:hover {
+    background: white;
+    color: #1D3D66;
+    border: 1px solid #1D3D66;
+}
+
+/* Раскрывающаяся часть */
+.project-details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.project-details.visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.project-details .details-content {
+    width: 100%;
+    text-align: center;
+}
+
+.project-details .details-content p {
+    white-space: pre-line;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.project-details .details-content ul {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px;
+    line-height: 1.6;
+}
+
+/* Галерея изображений */
+.project-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+
+/* Медиа запросы */
+@media (max-width: 768px) {
+    .project-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-item {
+        margin-bottom: 20px;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    .main-title {
+        font-size: 30px;
+        font-family:'Abril Fatface', cursive;
+    }
+
+    .expand-btn {
+        width: 100%;
+    }
+    .project-details .details-content p,
+    .project-details .details-content ul {
+        padding: 0 15px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,1261 @@
+.body {
+    margin-top: 100px;
+    background: url("../img/folder/back.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
+/* Основной контейнер */
+.main-content {
+    max-width: 1280px; /* соответствует max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* соответствует px-4 */
+    padding-right: 1rem;
+    padding-top: 3rem; /* соответствует py-12 */
+    padding-bottom: 3rem;
+}
+
+/* Welcome Section как всплывающее окно */
+.welcome-section {
+    position: fixed;
+    top: 20%; /* Чуть ниже header */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    text-align: center;
+    max-width: 90%;
+    width: 550px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: url("../img/folder/back.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+/* Показ при загрузке */
+.welcome-section.show {
+    opacity: 1;
+}
+
+/* Плавное исчезновение */
+.welcome-section.fade-out {
+    opacity: 0;
+}
+
+/* Скрытие по умолчанию */
+.hidden {
+    display: none;
+}
+
+.welcome-section h1 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 800; /* font-extrabold */
+    font-family: 'Abril Fatface', cursive;
+    color: #ffffff; /* text-indigo-900 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    letter-spacing: -0.025em; /* tracking-tight */
+    transition: color 0.3s ease;
+}
+
+.welcome-section p {
+    color: #ffffff; /* text-gray-700 */
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.75; /* leading-relaxed */
+    transition: all 0.3s ease;
+}
+
+.welcome-section #loginPrompt {
+    display: inline-block;
+    color: #4f46e5; /* text-indigo-600 */
+    font-weight: 600; /* font-semibold */
+    transition: color 0.2s ease; /* transition-colors duration-200 */
+}
+
+.welcome-section #loginPrompt:hover {
+    color: #4338ca; /* hover:text-indigo-800 */
+}
+
+/* Our Teachers Section */
+.teachers-section {
+    padding: 2rem; /* p-8 */
+    border: 3px dashed #1D3D66; /* пунктирная рамка в темно-синем цвете */
+    border-radius: 1rem;
+    background: linear-gradient(to right, #ffd1d1, #ffffcf); /* градиент от светло-синего */
+    margin-bottom: 2rem; /* mb-8 */
+    animation: slideIn 0.5s ease-in-out forwards;
+    position: relative;
+}
+
+.teachers-section::before {
+    content: "👩‍🏫"; /* смайлик учительницы */
+    position: absolute;
+    top: -2rem;
+    left: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.teachers-section h2 {
+    font-weight: 700; /* font-bold */
+    color: #1D3D66; /* text-gray-800 */
+    font-family: 'Abril Fatface', cursive;
+    margin-bottom: 1.5rem; /* mb-6 */
+    border-bottom: 2px solid #1D3D66; /* border-b-2 border-indigo-500 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* Use Bootstrap's row class for layout */
+.teachers-section #teachersList {
+    display: flex; /* Fallback for older browsers */
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+@media (min-width: 768px) {
+    .teachers-section #teachersList {
+        grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .teachers-section #teachersList {
+        grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+    }
+}
+
+.teacherlist-show {
+    border: 2px solid #1D3D66; /* сплошная индиго рамка */
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background: linear-gradient(to bottom right, #eff6ff, #dbeafe); /* градиент от светло-синего */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.teacherlist-show::before {
+    content: "✍️"; /* смайлик пишущей руки */
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.teacherlist-show:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.teacherlist-show-p {
+    color: #1f2937; /* text-gray-800 */
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+/* Student Dashboard */
+.student-dashboard {
+    background: linear-gradient(to right, #f0fdf4, #ccfbf1); /* from-green-50 to-teal-50 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    padding: 2rem; /* p-8 */
+    margin-bottom: 2rem; /* mb-8 */
+}
+
+.student-dashboard h2 {
+    font-weight: 700; /* font-bold */
+    font-family: 'Abril Fatface', cursive;
+    color: #1D3D66; /* text-teal-800 */
+    margin-bottom: 1.5rem; /* mb-6 */
+    border-bottom: 2px solid #1D3D66; /* border-b-2 border-teal-500 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    display: inline-block;
+    transition: color 0.3s ease;
+
+}
+
+.student-dashboard #studentData {
+    color: #374151; /* text-gray-700 */
+    space-y: 1.5rem; /* space-y-6 */
+}
+
+/* Стили для профиля студента */
+.student-profile {
+    padding: 1.5rem;
+    border: 3px dashed #14b8a6; /* пунктирная рамка в цвете teal */
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.8); /* полупрозрачный белый фон */
+    animation: slideIn 0.5s ease-in-out forwards;
+}
+
+.student-details {
+    padding: 1rem;
+    border: 2px solid #4f46e5; /* рамка индиго */
+    border-radius: 0.5rem;
+    background-color: #e0f2fe; /* светло-голубой фон */
+    margin-bottom: 1rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* анимация при наведении */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* начальная тень */
+}
+
+.student-details:hover {
+    transform: translateY(-5px); /* подъем на 5px */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* увеличенная тень */
+}
+
+.student-details::before {
+    content: "📚"; /* смайлик книги */
+    position: absolute;
+    top: -1.5rem;
+    left: 1rem;
+    font-size: 2rem;
+}
+
+.student-details p {
+    margin: 0.5rem 0;
+    color: #1f2937; /* text-gray-800 */
+    font-weight: 500;
+}
+
+.vocabulary-section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 2px dotted #f97316; /* оранжевая пунктирная рамка */
+    border-radius: 0.75rem;
+    background-color: #fff7ed; /* светло-оранжевый фон */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* анимация при наведении */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* начальная тень */
+}
+
+.vocabulary-section:hover {
+    transform: translateY(-5px); /* подъем на 5px */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* увеличенная тень */
+}
+
+.vocabulary-section::before {
+    content: "🌟"; /* смайлик звезды */
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    font-size: 2rem;
+}
+
+.vocabulary-section h3 {
+    color: #f97316; /* оранжевый заголовок */
+    margin-bottom: 0.75rem;
+}
+
+.vocabulary-progress-container {
+    background-color: #e5e7eb; /* серый фон */
+    height: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #14b8a6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vocabulary-progress {
+    background: linear-gradient(to right, #4f46e5, #14b8a6); /* градиент от индиго к teal */
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 2rem;
+    font-weight: bold;
+    transition: width 0.5s ease-in-out; /* анимация заполнения */
+}
+
+.vocabulary-description {
+    margin-top: 0.75rem;
+    font-style: italic;
+    color: #4b5563; /* text-gray-600 */
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.vocabulary-description::before {
+    content: "✅"; /* смайлик галочки */
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+.learning-progress {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 2px solid #10b981; /* зеленая рамка */
+    border-radius: 0.5rem;
+    background-color: #ecfdf5; /* светло-зеленый фон */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* анимация при наведении */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* начальная тень */
+}
+
+.learning-progress:hover {
+    transform: translateY(-5px); /* подъем на 5px */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* увеличенная тень */
+}
+
+.learning-progress::before {
+    content: "🎓"; /* смайлик шапочки выпускника */
+    position: absolute;
+    top: -1.5rem;
+    left: 1rem;
+    font-size: 2rem;
+}
+
+.learning-progress h3 {
+    color: #10b981; /* зеленый заголовок */
+    margin-bottom: 0.75rem;
+}
+
+.learning-progress p {
+    margin: 0.5rem 0;
+    color: #1f2937; /* text-gray-800 */
+    font-weight: 500;
+}
+
+/* Анимация появления */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Teacher Dashboard */
+.teacher-dashboard {
+    padding: 2rem; /* p-8 */
+    border: 3px dashed #4f46e5; /* пунктирная рамка в индиго */
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.9); /* полупрозрачный белый фон */
+    margin-bottom: 2rem; /* mb-8 */
+    animation: slideIn 0.5s ease-in-out forwards;
+    position: relative;
+}
+
+.teacher-dashboard::before {
+    content: "👨‍🏫"; /* смайлик учителя */
+    position: absolute;
+    top: -2rem;
+    left: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.teacher-dashboard h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #1D3D66; /* text-indigo-800 */
+    margin-bottom: 1.5rem; /* mb-6 */
+    border-bottom: 2px solid #1D3D66; /* border-b-2 border-indigo-500 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    display: inline-block;
+    transition: color 0.3s ease;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.teacher-dashboard #teacherData {
+    color: #374151; /* text-gray-700 */
+    space-y: 1.5rem; /* space-y-6 */
+}
+
+/* Manager Dashboard */
+.manager-dashboard {
+    padding: 2rem; /* p-8 */
+    border: 3px dashed #8b5cf6; /* пунктирная рамка в фиолетовом цвете */
+    border-radius: 1rem;
+    background: linear-gradient(to right, #c3e1ff, #ffd8f4); /* from-blue-50 to-indigo-50 */
+    margin-bottom: 2rem; /* mb-8 */
+    animation: slideIn 0.5s ease-in-out forwards;
+    position: relative;
+    height: auto; /* убрана фиксированная высота для адаптивности */
+}
+
+.manager-dashboard::before {
+    content: "🛠️"; /* смайлик инструментов */
+    position: absolute;
+    top: -2rem;
+    left: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.manager-dashboard h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    font-family: 'Abril Fatface', cursive;
+    color: #1D3D66; /* text-purple-800 */
+    margin-bottom: 1.5rem; /* mb-6 */
+    border-bottom: 2px solid #1D3D66; /* border-b-2 border-purple-500 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.manager-admin {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.manager-teacher,
+.manager-student {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem;
+    border: 2px solid #8b5cf6; /* фиолетовая рамка */
+    border-radius: 0.75rem;
+    background: linear-gradient(to bottom right, #f3e8ff, #e9d5ff); /* градиент от светло-фиолетового */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* анимация при наведении */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* начальная тень */
+}
+
+.manager-teacher:hover,
+.manager-student:hover {
+    transform: translateY(-5px); /* подъем на 5px */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* увеличенная тень */
+}
+
+.manager-teacher::before {
+    content: "👨‍🏫"; /* смайлик учителя */
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.manager-student::before {
+    content: "👩‍🎓"; /* смайлик студентки */
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.manager-teacher h3,
+.manager-student h3 {
+    color: #8b5cf6; /* фиолетовый заголовок */
+    margin-bottom: 0.75rem;
+}
+
+.manager-teacher p,
+.manager-student p {
+    color: #1f2937; /* text-gray-800 */
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+/* Адаптивность: на маленьких экранах блоки могут располагаться вертикально */
+@media (max-width: 768px) {
+    .manager-admin {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.manager-dashboard #managerData {
+    color: #374151; /* text-gray-700 */
+    space-y: 1.5rem; /* space-y-6 */
+}
+
+/* Скрытые элементы */
+.hidden {
+    display: none;
+}
+
+.teacher-add-button,
+.student-add-button {
+    background-color: transparent; /* прозрачный фон */
+    color: #8b5cf6; /* фиолетовый текст в тон разделу */
+    padding: 8px 16px; /* чуть меньше отступов */
+    border: 2px solid #8b5cf6; /* рамка в тон разделу */
+    border-radius: 0.5rem; /* скругленные углы */
+    text-decoration: none;
+    font-weight: 500; /* средний вес шрифта */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.teacher-add-button:hover,
+.student-add-button:hover {
+    background-color: #8b5cf6; /* фиолетовый фон при наведении */
+    color: #ffffff; /* белый текст */
+    transform: translateY(-2px); /* легкий подъем */
+}
+
+.teacherlist-text {
+    color: #1D3D66;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Загрузка */
+.loading-text {
+    text-align: center;
+}
+
+/* Текст при отсутствии студентов */
+.no-students-text {
+    text-align: center;
+}
+
+.students-title {
+    font-size: 1.3rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: #1f2937; /* text-gray-800 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    position: relative;
+    
+}
+
+
+/* Сетка для карточек */
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+    gap: 1rem; /* gap-4 */
+}
+
+@media (min-width: 768px) {
+    .students-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .students-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+    }
+}
+
+/* Карточка студента */
+.student-card {
+    border: 2px solid #4f46e5; /* сплошная индиго рамка */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(to bottom right, #eff6ff, #dbeafe); /* градиент от светло-синего */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.student-card::before {
+    content: "📝"; /* смайлик листа бумаги */
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Имя студента */
+.student-name {
+    font-weight: 600; /* font-semibold */
+    color: #1f2937; /* text-gray-800 */
+}
+
+/* Уровень студента */
+.student-level {
+    font-size: 0.875rem; /* text-sm */
+    color: #4b5563; /* text-gray-600 */
+    margin-top: 0.5rem; /* mt-2 */
+}
+
+/* Словарный запас */
+.student-vocab {
+    font-size: 0.875rem; /* text-sm */
+    color: #4b5563; /* text-gray-600 */
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* Стили для форм */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-button,
+.submit-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.cancel-button {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.submit-button {
+    background-color: #4a6fdc;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-button:hover {
+    background-color: #3a5fcc;
+}
+
+/* Стили кнопок в панели менеджера */
+.teacher-add-button,
+.student-add-button {
+    padding: 8px 16px;
+    background-color: #4a6fdc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.teacher-add-button:hover,
+.student-add-button:hover {
+    background-color: #3a5fcc;
+}
+
+/* Стили для карточек преподавателя и студента */
+.manager-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.manager-teacher,
+.manager-student {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.manager-teacher h3,
+.manager-student h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Анимация для модального окна */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* Стили для форм */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-button,
+.submit-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.cancel-button {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.submit-button {
+    background-color: #4a6fdc;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-button:hover {
+    background-color: #3a5fcc;
+}
+
+/* Стили для кнопки удаления */
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Предупреждающий текст */
+.warning-text {
+    color: #dc3545;
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Стили кнопок в панели менеджера */
+.teacher-add-button,
+.student-add-button {
+    padding: 8px 16px;
+    background-color: #4a6fdc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.teacher-add-button:hover,
+.student-add-button:hover {
+    background-color: #3a5fcc;
+}
+
+.teacher-delete-button,
+.student-delete-button {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.teacher-delete-button:hover,
+.student-delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Группа кнопок */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Стили для карточек преподавателя и студента */
+.manager-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.manager-teacher,
+.manager-student {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.manager-teacher h3,
+.manager-student h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Анимация для модального окна */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* Стили для форм */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-button,
+.submit-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.cancel-button {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.submit-button {
+    background-color: #4a6fdc;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-button:hover {
+    background-color: #3a5fcc;
+}
+
+/* Стили кнопок в панели менеджера */
+.teacher-add-button,
+.student-add-button {
+    padding: 8px 16px;
+    background-color: #4a6fdc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.teacher-add-button:hover,
+.student-add-button:hover {
+    background-color: #3a5fcc;
+}
+
+/* Стили для карточек преподавателя и студента */
+.manager-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.manager-teacher,
+.manager-student {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.manager-teacher h3,
+.manager-student h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Анимация для модального окна */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal {
+    animation: fadeIn 0.3s;
+}
+
+/* Стили для профиля студента */
+.student-profile {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-details {
+    margin-bottom: 20px;
+}
+
+.vocabulary-section {
+    margin-bottom: 20px;
+}
+
+.vocabulary-progress-container {
+    background-color: #eee;
+    border-radius: 4px;
+    height: 24px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.vocabulary-progress {
+    background-color: #4a6fdc;
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+    transition: width 0.5s;
+}
+
+.vocabulary-description {
+    font-style: italic;
+    color: #666;
+}
+
+.learning-progress {
+    margin-top: 20px;
+}
+
+/* Стили для списка преподавателей */
+.teachers-section {
+    margin-bottom: 30px;
+}
+
+.teacherlist-show {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.teacherlist-show-p {
+    margin: 5px 0;
+}
+
+/* Стили для статусных сообщений */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Стили для добавления отзывчивости */
+@media (max-width: 768px) {
+    .manager-admin {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+}
+/* Card Container */
+.card {
+    width: 100%; /* Take full width of the column */
+    max-width: 350px; /* Set a reasonable maximum width */
+    border: none; /* Remove default border */
+    border-radius: 15px; /* Rounded corners */
+    background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Subtle gradient background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    overflow: hidden; /* Prevent content overflow */
+    margin: 0 auto; /* Center the card within its column */
+}
+
+/* Card Body */
+.card-body {
+    padding: 1.5rem; /* Adequate padding for content */
+    width: 100%; /* Ensure the body takes full card width */
+}
+
+/* Card Title and Badge */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    color: #fff; /* Ensure text is white for contrast */
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.6s ease; /* Smooth background color transition */
+}
+
+/* Remove the static background-color from .badge */
+.card:hover .badge {
+    transform: scale(1.1); /* Slight scale on hover */
+    filter: brightness(1.1);
+}
+
+/* Teacher Details List */
+.teacher-details {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.teacher-details li {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.teacher-details li::before {
+    content: "•";
+    color: #007bff;
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+/* Progress Bar */
+/* Progress Bar */
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background-color: #e9ecef; /* Lighter background for contrast */
+    overflow: hidden;
+    margin-top: 1rem; /* Add spacing above progress bar */
+}
+
+.progress-bar {
+    transition: width 0.6s ease, background-color 0.6s ease; /* Smooth width and color transition */
+    border-radius: 10px;
+}
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-8px); /* Increased lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+    
+    .card-body {
+        padding: 1rem; /* Slightly reduced padding on small screens */
+    }
+    
+    .teacher-details li {
+        margin-bottom: 0.5rem; /* Reduced spacing on small screens */
+    }
+}
+
+.teachers-section .card {
+    width: 100% !important;
+    max-width: 350px !important;
+}
+
+.student-dashboard #TestBtn {
+    background-color: #10b981; /* Синий цвет, как на скриншоте */
+    color: white;
+    padding: 0.5rem 1rem; /* Компактные размеры */
+    border-radius: 8px; /* Скругленные углы */
+    font-weight: 600; /* font-semibold */
+    font-size: 1.05rem; /* Соответствует размеру текста */
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #10b981;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-dashboard #TestBtn:hover {
+    background-color: white; /* Светлее синий при наведении */
+    color: #10b981;
+    border: 1px solid #10b981;
+    transform: translateY(-2px); /* Лёгкий подъём */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23); /* Усиленная тень */

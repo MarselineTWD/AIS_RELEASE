@@ -1,0 +1,91 @@
+
+.header-area {
+    position:fixed;  /* Используем fixed для фиксации хедера */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  /* Убедитесь, что хедер всегда поверх других элементов */
+    
+}
+
+.main-header-area {
+    width: 100%;
+}
+
+/* Чтобы избежать перекрытия контента хедером */
+body {
+    margin: 0;
+    padding-top: 80px; /* Добавляем отступ сверху для контента (высота хедера) */
+}
+
+
+.main-header-area {
+    position: relative;
+    z-index: 1;
+}
+
+
+.header_wrap {
+    padding: 10px 20px;
+}
+
+.header_left .logo img {
+    max-height: 50px;
+}
+
+.header_right .book_btn a {
+    background-color: #1D3D66;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.header_right .book_btn a:hover {
+    background-color: #e9ecef;
+    color: #1D3D66 ;
+    border: 1px solid #1D3D66;
+}
+
+.main-header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .header_right {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .header_right .book_btn {
+        margin-top: 10px;
+    }
+    .logo img {
+        max-height: 40px;
+    }
+}
+.custom_test_button {
+    background-color: #1D3D66;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.custom_test_button:hover {
+    background-color: #e9ecef;
+    color: #1D3D66 ;
+    border: 1px solid #1D3D66;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}

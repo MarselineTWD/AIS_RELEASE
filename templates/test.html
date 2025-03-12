@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Language Test - {{ level }}</title>
+    <link rel="stylesheet" href="/static/css/test.css">
+</head>
+<body>
+    <div class="test-container">
+        <h1>{{ level }} Level Test</h1>
+        <div id="test-questions">
+            {% for question in questions %}
+            <div class="question-block" data-question-index="{{ loop.index0 }}">
+                <p>{{ question.question }}</p>
+                <div class="options">
+                    {% for option in question.options %}
+                    <button class="option-btn" data-option="{{ option }}">
+                        {{ option }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button id="submit-test">Submit Test</button>
+    </div>
+    <script src="/static/js/test.js"></script>
+</body>
+</html>

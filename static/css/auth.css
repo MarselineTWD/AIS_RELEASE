@@ -1,0 +1,169 @@
+.body {
+  background: url("../img/folder/back.jpg") no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+/* --- Основной контейнер формы --- */
+.contregist {
+  max-width: 700px;
+  width: 100%;
+  margin: 70px auto;
+  background-color: rgba(255, 255, 255, 0.5); /* Белый фон с прозрачностью */
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Заголовок --- */
+.title {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  color: #1D3D66;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: #1D3D66;
+  transform: translateX(-50%);
+}
+
+/* --- Кнопки переключения (Авторизация / Регистрация) --- */
+.switch-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.switch-btn {
+  padding: 10px 20px !important;
+  background-color: #1D3D66 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+}
+
+.switch-btn:hover, .switch-btn.active {
+  background-color: #e9ecef !important;
+  color: #1D3D66 !important;
+  border: 1px solid #1D3D66 !important;
+}
+
+
+/* --- Стилизация форм --- */
+.user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+.input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #1D3D66;
+}
+
+/* --- Стилизация выпадающих списков --- */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper select {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  background-color: white;
+  cursor: pointer;
+  color: #999;
+}
+
+.select-wrapper select option {
+  color: #000 !important;
+}
+
+.select-wrapper select option:disabled {
+  color: #999 !important;
+}
+
+.select-wrapper select:valid {
+  color: #000;
+}
+
+.select-wrapper select:focus {
+  border-color: #1D3D66;
+}
+
+/* --- Кнопки отправки форм --- */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* --- Ссылки --- */
+.register-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}

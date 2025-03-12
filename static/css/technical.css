@@ -1,0 +1,257 @@
+/* Основной контейнер */
+.technical-info {
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: 'Abril Fatface', cursive;
+    z-index: 10;
+}
+
+/* Заголовок страницы */
+.technical-info header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.technical-info h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+/* Основные секции */
+section {
+    margin-bottom: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки секций */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    font-size: 32px;
+}
+
+/* Цели системы */
+.system-goals {
+    margin: 40px auto; /* отступ сверху и снизу для всей секции */
+    height: auto; /* Remove fixed height to accommodate content */
+    max-width: 1300px; /* ограничивает ширину секции, чтобы она не растягивалась слишком сильно */
+}
+
+.goals-content {
+    display: flex;
+    flex-direction: column; /* Stack blocks vertically instead of horizontally */
+    gap: 20px; /* Maintain spacing between blocks */
+    margin-top: 20px;
+}
+
+.goal {
+    width: 100%; /* Ensure the block takes full width of its container */
+    background: #fff; /* цвет фона карточки */
+    border-radius: 10px; /* скруглённые углы */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.457);
+    padding: 15px; /* Add padding for content spacing */
+    /* Remove visibility: hidden to ensure content is visible by default */
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInUp 1s ease-out forwards; /* Apply fade-in animation */
+}
+
+.goal:nth-child(1) { animation-delay: 0.2s; }
+.goal:nth-child(2) { animation-delay: 0.4s; }
+.goal:nth-child(3) { animation-delay: 0.6s; }
+
+.goal h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 10px 0; /* Margin bottom for spacing between title and description */
+    text-align: center; /* Align text left (remove or change to center if preferred) */
+    width: 100%; /* Ensure full width */
+}
+
+.goal p {
+    font-size: 20px;
+    color: #888;
+    margin: 0; /* Remove default margins */
+    width: 100%; /* Ensure full width */
+    text-align: center;
+}
+
+/* Функциональные возможности */
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.457);
+    width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Remove visibility: hidden to ensure content is visible by default */
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInUp 1s ease-out forwards; /* Apply fade-in animation */
+}
+
+.feature:nth-child(1) { animation-delay: 0.2s; }
+.feature:nth-child(2) { animation-delay: 0.4s; }
+.feature:nth-child(3) { animation-delay: 0.6s; }
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #002D62;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 20px;
+    color: #888;
+}
+
+/* Технический стек */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tech-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.457);
+    transition: transform 0.3s ease;
+    /* Remove visibility: hidden to ensure content is visible by default */
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInUp 1s ease-out forwards; /* Apply fade-in animation */
+}
+
+.tech-category:nth-child(1) { animation-delay: 0.2s; }
+.tech-category:nth-child(2) { animation-delay: 0.4s; }
+.tech-category:nth-child(3) { animation-delay: 0.6s; }
+.tech-category:nth-child(4) { animation-delay: 0.8s; }
+
+.tech-category:hover {
+    transform: translateY(-5px);
+}
+
+.tech-category h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #0b417f;
+}
+
+.tech-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-category li {
+    padding: 0.75rem 0;
+    text-align: center;
+    color: #666;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tech-category li:hover {
+    text-decoration: underline;
+}
+
+.tech-category li:last-child {
+    border-bottom: none;
+}
+
+/* Background for the body */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Soft gradient background */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    margin: 0;
+    padding: 0;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhance hover effects with slight scale */
+.goal:hover, .feature:hover, .tech-category:hover {
+    transform: scale(1.02) translateY(-5px); /* Slight scale and lift on hover */
+    transition: transform 0.3s ease;
+}
+
+/* Add a subtle shadow animation on hover */
+.goal:hover, .feature:hover, .tech-category:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Existing unused or redundant styles (keeping for reference) */
+.goals-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.goal-item {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #0b417f;
+    margin-right: 10px;
+}
+
+/* Медиа запросы */
+@media (max-width: 768px) {
+    .technical-info h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .features-grid,
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tech-category {
+        padding: 1rem;
+    }
+}

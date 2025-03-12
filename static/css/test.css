@@ -1,0 +1,290 @@
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.test-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовок */
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 30px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Бейдж уровня */
+.level-badge .badge {
+    font-size: 1.1rem;
+    padding: 8px 20px;
+    background: #3498db;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.level-badge .badge:hover {
+    transform: scale(1.05);
+    background: #2980b9;
+}
+
+/* Карточки вопросов */
+.question-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    animation: cardAppear 0.6s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h5 {
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Варианты ответов */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-label:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.option-label input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #3498db;
+}
+
+.option-label.selected {
+    background: #3498db;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* Кнопка отправки */
+.btn-primary {
+    background: #2ecc71;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #27ae60;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+/* Модальное окно */
+.modal-content {
+    border-radius: 15px;
+    animation: modalPop 0.3s ease-out;
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-header {
+    background: #3498db;
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+#score-display {
+    color: #2ecc71;
+    animation: scoreReveal 0.5s ease-in;
+}
+
+@keyframes scoreReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#percentage-display {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+#level-message {
+    color: #e74c3c;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .test-container {
+        padding: 20px;
+    }
+    
+    .question-card {
+        padding: 15px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+    }
+}
+#back-to-cabinet,
+#take-recommended-test {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Стиль для кнопки "Вернуться в кабинет" */
+#back-to-cabinet {
+    background-color: #6c757d; /* Серый цвет */
+    color: white;
+}
+
+#back-to-cabinet:hover {
+    background-color: #5a6268; /* Более темный серый при наведении */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Стиль для кнопки "Пройти рекомендуемый тест" */
+#take-recommended-test {
+    background-color: #007bff; /* Синий цвет */
+    color: white;
+    margin-left: 10px; /* Отступ от кнопки "Вернуться в кабинет" */
+}
+
+#take-recommended-test:hover {
+    background-color: #0056b3; /* Более темный синий при наведении */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Активное состояние (при нажатии) */
+#back-to-cabinet:active,
+#take-recommended-test:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    #back-to-cabinet,
+    #take-recommended-test {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #take-recommended-test {
+        margin-left: 0;
+    }
+}
+.modal-footer {
+    display: flex;
+    justify-content: center; /* Выравнивание по центру */
+    gap: 15px; /* Отступ между кнопками */
+    padding: 20px; /* Увеличим отступы для лучшего вида */
+}
+
+/* Уберем margin-left у кнопки "Пройти рекомендуемый тест", так как он больше не нужен */
+.btn-custom-recommend {
+    margin-left: 0; /* Убираем отступ, так как центрируем через flex */
+}
+
+/* Адаптивность: на мобильных устройствах кнопки уже располагаются друг под другом */
+@media (max-width: 768px) {
+    .modal-footer {
+        flex-direction: column; /* Кнопки друг под другом */
+        align-items: center; /* Центрирование по горизонтали */
+    }
+}

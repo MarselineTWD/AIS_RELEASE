@@ -1,0 +1,133 @@
+.body {
+    background: url("../img/folder/back_ru.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+/* Секция команды */
+.team-section {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    
+}
+
+/* Сетка команды */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.team-grid-second-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 66%;
+    margin: 0 auto;
+}
+
+/* Карточка члена команды */
+.team-member {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.265);
+    padding: 20px;
+    text-align: center;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #1D3D66 ;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+/* Фото */
+.member-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    background: #1D3D66;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Информация */
+.member-info h2 {
+    font-size: 22px;
+    margin: 0 0 5px;
+    color: #333;
+}
+
+.role {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #444;
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* Навыки */
+.skills {
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 80%;
+}
+
+.skill-tag {
+    background: #1D3D66;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-5px);
+}
+
+/* Контакты */
+.member-contact {
+    margin-top: 15px;
+}
+
+.contact-link {
+    color: #1D3D66;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    color: #1D3D66;
+}
+
+/* Медиа запросы */
+@media (max-width: 768px) {
+    .team-grid,
+    .team-grid-second-row {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}

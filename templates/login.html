@@ -1,0 +1,158 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Education</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Подключение Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Подключаем Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/themify-icons.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/auth.css">
+    <link rel="stylesheet" href="static/css/header.css">
+
+    <!-- Добавление стилей для заднего фона -->
+
+</head>
+
+
+<body class="body">
+    <div id="header-container"></div>
+    
+    <div class="contregist" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 600px;">
+        <div class="title">Авторизация</div>
+        <div class="content">
+            <div class="switch-buttons" style="margin-bottom: 15px; display: flex; justify-content: center; gap: 15px;">
+                <button type="button" onclick="showLogin()" class="switch-btn active" id="loginButton">Авторизация</button>
+                <button type="button" onclick="showRegistration()" class="switch-btn" id="regButton">Регистрация</button>
+            </div>
+    
+            <form id="registrationForm" action="#" style="display: none;">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Имя</span>
+                        <input type="text" id="firstName" placeholder="Введите имя" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Фамилия</span>
+                        <input type="text" id="lastName" placeholder="Введите фамилию" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Возраст</span>
+                        <input type="number" id="age" placeholder="Введите возраст" min="1" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Пол</span>
+                        <div class="select-wrapper">
+                            <select id="gender" required>
+                                <option value="" disabled selected>Выберите пол</option>
+                                <option value="male">Мужской</option>
+                                <option value="female">Женский</option>
+                                <option value="other">Другой</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Добавляем выпадающий список Хобби -->
+                    <div class="input-box">
+                        <span class="details">Хобби</span>
+                        <div class="select-wrapper">
+                            <select id="hobby" required>
+                                <option value="" disabled selected>Выберите хобби</option>
+                                <option value="cinematography">Кинематограф</option>
+                                <option value="music">Музыка</option>
+                                <option value="magazines">Журналы</option>
+                                <option value="books">Книги</option>
+                                <option value="memes">Мемы</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Добавляем выпадающий список Цель -->
+                    <div class="input-box">
+                        <span class="details">Цель</span>
+                        <div class="select-wrapper">
+                            <select id="specification" required>
+                                <option value="" disabled selected>Выберите цель</option>
+                                <option value="pronunciation">Произношение</option>
+                                <option value="vocabulary">Словарный запас</option>
+                                <option value="grammar">Грамматика</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Почта</span>
+                        <input type="email" id="email" placeholder="Введите почту" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Уровень английского</span>
+                        <div class="select-wrapper">
+                            <select id="englishLevel" required>
+                                <option value="" disabled selected>Выберите уровень</option>
+                                <option value="A1">A1 (Beginner)</option>
+                                <option value="A2">A2 (Elementary)</option>
+                                <option value="B1">B1 (Intermediate)</option>
+                                <option value="B2">B2 (Upper-Intermediate)</option>
+                                <option value="C1">C1 (Advanced)</option>
+                                <option value="C2">C2 (Proficient)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Пароль</span>
+                        <div style="position: relative;">
+                            <input type="password" id="password" placeholder="Введите пароль" required>
+                            <span class="toggle-password" onclick="togglePassword('password')" style="position: absolute; right: 10px; top: 8px; cursor: pointer;"></span>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Подтверждение пароля</span>
+                        <div style="position: relative;">
+                            <input type="password" id="confirmPassword" placeholder="Подтвердите пароль" required>
+                            <span class="toggle-password" onclick="togglePassword('confirmPassword')" style="position: absolute; right: 10px; top: 8px; cursor: pointer;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Зарегистрироваться">
+                </div>
+            </form>
+            
+            <form id="loginForm" action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Почта</span>
+                        <input type="email" id="loginEmail" placeholder="Введите почту" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Пароль</span>
+                        <div style="position: relative;">
+                            <input type="password" id="loginPassword" placeholder="Введите пароль" required>
+                            <span class="toggle-password" onclick="togglePassword('loginPassword')" style="position: absolute; right: 10px; top: 8px; cursor: pointer;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Войти">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="static/js/auth.js"></script>
+    <script src="static/js/global.js"></script>
+    <script src="static/js/registration.js"></script>
+</body>
+</html>

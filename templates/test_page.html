@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Proficiency Test - {{ test_name.upper() }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/test.css') }}">
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="text-center mb-4">English Proficiency Test</h1>
+        <div class="level-badge text-center">
+            <span class="badge bg-primary">Level: {{ test_data.level }}</span>
+        </div>
+        
+        <form id="test-form">
+            {% for question in test_data.questions %}
+            {% set question_number = loop.index %}
+            <div class="question-card" id="question-{{ question_number }}">
+                <h5 class="mb-3">{{ question_number }}. {{ question.question }}</h5>
+                <div class="options">
+                    {% for option in question.options %}
+                    <label class="option-label">
+                        <input type="radio" name="question-{{ question_number }}" value="{{ option }}">
+                        <span>{{ option }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Submit Test</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results Modal -->
+    <div class="modal fade" id="resultsModal" tabindex="-1" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Test Results</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center fs-4">Your score:</p>
+                    <p class="text-center fs-1 fw-bold" id="score-display"></p>
+                    <p class="text-center" id="percentage-display"></p>
+                    <p class="text-center" id="level-message" style="display: none;"></p>
+                </div>
+                <div class="modal-footer align-items-center">
+                    <button type="button" class="btn-custom-back" id="back-to-cabinet">Вернуться в кабинет</button>
+                    <button type="button" class="btn-custom-recommend" id="take-recommended-test">Пройти рекомендуемый тест</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the results modal
+            const resultsModal = new bootstrap.Modal(document.getElementById('resultsModal'));
+            
+            // Add selected class to chosen options
+            const optionLabels = document.querySelectorAll('.option-label');
+            optionLabels.forEach(label => {
+                label.addEventListener('click', function() {
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    if (radioInput) {
+                        // Remove selected class from all options in the same question
+                        const questionCard = this.closest('.question-card');
+                        questionCard.querySelectorAll('.option-label').forEach(l => l.classList.remove('selected'));
+                        // Add selected class to clicked option
+                        this.classList.add('selected');
+                        // Ensure the radio button is checked
+                        radioInput.checked = true;
+                    }
+                });
+            });
+
+            // Handle form submission
+            document.getElementById('test-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Collect answers
+                const answers = {};
+                const questions = document.querySelectorAll('.question-card');
+                questions.forEach((question, index) => {
+                    const selectedOption = question.querySelector('input[type="radio"]:checked');
+                    answers[index + 1] = selectedOption ? selectedOption.value : null;
+                });
+
+                // Check if all questions are answered
+                const unansweredQuestions = Object.values(answers).filter(answer => answer === null).length;
+                if (unansweredQuestions > 0) {
+                    alert(`Please answer all questions. ${unansweredQuestions} question(s) remaining.`);
+                    return;
+                }
+
+                try {
+                    // Send answers to server
+                    const response = await fetch(`/api/test/{{ test_name }}/check`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        },
+                        body: JSON.stringify({ answers: answers })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Failed to submit test');
+                    }
+
+                    const result = await response.json();
+                    
+                    // Display results
+                    document.getElementById('score-display').textContent = 
+                        `${result.correct_answers} / ${result.total_questions}`;
+                    document.getElementById('percentage-display').textContent = 
+                        `${result.percentage}% correct`;
+
+                    // Add level change message if applicable
+                    let message = '';
+                    if (result.next_level) {
+                        if (result.correct_answers <= 2) {
+                            message = `Based on your score, we recommend moving to a lower level (${result.next_level.toUpperCase()}).`;
+                        } else if (result.correct_answers >= 8) {
+                            message = `Congratulations! You can move to a higher level (${result.next_level.toUpperCase()}).`;
+                        }
+                        document.getElementById('level-message').textContent = message;
+                        document.getElementById('level-message').style.display = 'block';
+                    } else if (result.finished_tests) {
+                        document.getElementById('level-message').textContent = 
+                            'Your level has been confirmed. Tests are now complete.';
+                        document.getElementById('level-message').style.display = 'block';
+                    }
+
+                    // Show the modal
+                    resultsModal.show();
+
+                    // Add event listeners to buttons
+                    const backToCabinetBtn = document.getElementById('back-to-cabinet');
+                    const takeRecommendedTestBtn = document.getElementById('take-recommended-test');
+
+                    backToCabinetBtn.addEventListener('click', function() {
+                        window.location.href = '/kabinet.html'; // Переход в кабинет (замените на нужный URL)
+                    });
+
+                    takeRecommendedTestBtn.addEventListener('click', function() {
+                        if (result.next_level) {
+                            window.location.href = `/test/${result.next_level}.html`; // Переход к рекомендуемому тесту
+                        } else {
+                            alert('No recommended test available.');
+                        }
+                    });
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to submit test. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

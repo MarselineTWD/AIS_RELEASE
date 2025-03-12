@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация студента</title>
+    <link rel="stylesheet" href="/static/css/registration.css">
+</head>
+
+<body>
+    <div class="registration-container">
+        <form id="registrationForm" action="/api/register" method="POST">
+            <h2>Регистрация студента</h2>
+
+            <div class="form-group">
+                <label for="first_name">Имя *</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Фамилия *</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Возраст *</label>
+                <input type="number" id="age" name="age" required min="10" max="100">
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Пол *</label>
+                <select id="sex" name="sex" required>
+                    <option value="">Выберите пол</option>
+                    <option value="M">Мужской</option>
+                    <option value="F">Женский</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="level">Уровень английского *</label>
+                <select id="level" name="level" required>
+                    <option value="">Выберите уровень</option>
+                    <option value="A1">A1 - Начальный</option>
+                    <option value="A2">A2 - Элементарный</option>
+                    <option value="B1">B1 - Средний</option>
+                    <option value="B2">B2 - Выше среднего</option>
+                    <option value="C1">C1 - Продвинутый</option>
+                    <option value="C2">C2 - Профессиональный</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль *</label>
+                <input type="password" id="password" name="password" required minlength="6">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Зарегистрироваться</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            // Преобразование числовых полей
+            data.age = parseInt(data.age);
+            data.teacher_id = 1; // Фиксированный ID преподавателя
+            data.vocabulary = 0; // Начальный словарный запас
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('Регистрация прошла успешно!');
+                    window.location.href = '/login.html';
+                } else {
+                    const errorData = await response.json();
+                    alert(`Ошибка регистрации: ${errorData.detail}`);
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Не удалось выполнить регистрацию. Попробуйте снова.');
+            }
+        });
+    </script>
+</body>
+
+</html>

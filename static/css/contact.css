@@ -1,0 +1,7 @@
+.form-group label {
+    display: block; /* Подпись над полем */
+    margin-bottom: 0.5rem; /* Отступ снизу */
+    font-weight: 500; /* Средний вес шрифта */
+    color: #333; /* Темный цвет текста */
+    font-size: 1rem; /* Размер шрифта */
+}
